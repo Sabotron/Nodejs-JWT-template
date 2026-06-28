@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Sabotron/Nodejs-JWT-template#readme",
   "dependencies": {
-    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",

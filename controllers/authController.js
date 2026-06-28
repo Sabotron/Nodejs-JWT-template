@@ -19,6 +19,14 @@ export const register = async(req, res) => {
             password: hashedPassword 
         });
         await user.save()
+        res.status(201).json({message: "User registered successfully!",
+            user: {
+                id: user._id,
+                username: user.username,
+                email: user.email,
+                role: user.role,
+            },
+        });
     } catch (error) {
         console.error("Error registering user:", error);
         return res.status(500).json({message: "Server error"});
@@ -78,8 +86,8 @@ export const login = async (req, res) => {
     }
 };
 
-export const refrehsToken = async (req, res) =>{
-    const token = req.cookies.refrehsToken;
+export const refreshToken = async (req, res) =>{
+    const token = req.cookies.refreshToken;
     if(!token){
         return res.status(401).json({message: "No refresh token provided!"});
     }
